@@ -1,17 +1,47 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color = 'primary'>
+      <ion-title>Church Giving</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content *ngIf='areFavorites()'>
+  <ion-list>
+    <ion-list-header>
+      Churches Nearby
+    </ion-list-header>
+    <ion-card *ngFor = 'let item of nearbyChurches'>
+      <ion-card-title>
+        {{item.church.name}}
+      </ion-card-title>
+      <p>
+        Pastor: {{item.church.pastor}}
+      </p>
+    </ion-card>
+  </ion-list>
 </ion-content>
+
+<ion-content *ngIf='areFavorites()'>
+  <ion-card *ngFor="let item of myChurches">
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col><img src={{item.church.imageUrl}}></ion-col>
+        <ion-col>
+          <button ion-button (click)='unfollowFromHome(item.church.id)'>
+            Unfollow
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-card-title>
+      {{item.church.name}}
+    </ion-card-title>
+    <p>
+      {{item.church.pastor}}
+    </p>
+    <button ion-button block color="secondary" (click)='openModal(item)'>
+      GiveC
+    </button>
+  </ion-card>
+</ion-content>
+
