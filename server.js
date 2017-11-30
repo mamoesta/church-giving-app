@@ -1,3 +1,4 @@
+/*
 var stripe = require('stripe')('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -30,3 +31,11 @@ app.use(router);
 app.listen(3333, function (){
     console.log('Server started');
 })
+*/
+var express = require('express'),
+app = express();
+app.use(express.static('www'));
+app.set('port', process.env.PORT || 5000);
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
