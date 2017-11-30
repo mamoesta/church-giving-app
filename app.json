@@ -1,0 +1,7 @@
+{
+    "name": "Church Giving App",
+    "description": "This is my description of my application",
+    "repository":"https://github.com/mamoesta/church-giving-app.git",
+    "logo":"https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w",
+    "keywords": ["ionic","mart","stripe"]
+}
