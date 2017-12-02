@@ -54,6 +54,6 @@
   "main": "server.js",
   "license": "ISC",
   "engines": {
-    "node": "4.1.1"
+    "node": "6.11.4"
   }
 }
