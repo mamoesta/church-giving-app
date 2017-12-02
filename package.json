@@ -52,5 +52,8 @@
     }
   },
   "main": "server.js",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "4.1.1"
+  }
 }
