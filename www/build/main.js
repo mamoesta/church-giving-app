@@ -22,11 +22,11 @@ webpackEmptyAsyncContext.id = 112;
 
 var map = {
 	"../pages/church-detail/church-detail.module": [
-		279,
+		278,
 		1
 	],
 	"../pages/give-modal/give-modal.module": [
-		278,
+		279,
 		0
 	]
 };
@@ -50,79 +50,12 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GiveModalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__ = __webpack_require__(155);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var GiveModalPage = (function () {
-    function GiveModalPage(navCtrl, navParams, viewController, stripe) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewController = viewController;
-        this.stripe = stripe;
-        this.cardinfo = {
-            number: '',
-            expMonth: '',
-            expYear: '',
-            cvc: ''
-        };
-        this.churchGive = navParams.get('obj');
-        console.log('the church data is:', this.churchGive);
-    }
-    GiveModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad GiveModalPage');
-    };
-    GiveModalPage.prototype.cancelModal = function () {
-        this.viewController.dismiss();
-    };
-    GiveModalPage.prototype.giveClose = function () {
-        this.navCtrl.setPages([
-            { page: __WEBPACK_IMPORTED_MODULE_2__pages__["f" /* TabsPage */] }
-        ]);
-    };
-    GiveModalPage.prototype.pay = function () {
-        this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
-        this.stripe.createCardToken(this.cardinfo).then(function (token) {
-            var data = 'stripetoken=' + token + '&amount=50';
-        });
-    };
-    return GiveModalPage;
-}());
-GiveModalPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder=\'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  <button ion-button (click) = "pay()">Pay Now</button>\n</ion-content>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/give-modal/give-modal.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */]])
-], GiveModalPage);
-
-//# sourceMappingURL=give-modal.js.map
-
-/***/ }),
-
-/***/ 198:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChurchDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_shared_shared__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(258);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage_dist_src_storage__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -223,13 +156,80 @@ var ChurchDetailPage = (function () {
 }());
 ChurchDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-church-detail',template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/church-detail/church-detail.html"*/'<!--\n  Generated template for the ChurchDetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color = "primary">\n    <ion-title>{{data.church.name}}</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'goHome(0)\'>\n        <ion-icon name=\'home\'></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card>\n    <ion-item>\n      <ion-avatar item-start>\n        <img src={{data.church.pastorUrl}}>\n      </ion-avatar>\n      <h2 class = "headercenter">{{data.church.name}}</h2>\n      \n      <button ion-button item-right item-top *ngIf = "isFollowing" (click)=\'toggleFollow()\'>\n        <ion-icon name="star"></ion-icon>\n      </button>\n      <button ion-button item-right item-top *ngIf = "!isFollowing" (click)=\'toggleFollow()\'>\n        <ion-icon name="sad"></ion-icon>\n      </button>\n\n    </ion-item>\n    <ion-item>\n      <h2 class = "headercenter">{{data.church.pastor}}</h2>\n      <h2 class = "headercenter">{{data.church.city}}, {{data.church.state}}</h2>\n    </ion-item>\n    <button ion-button block color="secondary" (click)="openModal()">\n        Give\n    </button>\n  </ion-card>\n\n  <ion-card>\n    <ion-item>\n      <ion-title>Your Recent Giving</ion-title>\n        <ion-grid *ngFor="let item of transactions">\n          <ion-row align-items-start>\n            <ion-col>\n                {{item.date| date:\'MM/dd/yyyy\'}} \n            </ion-col>\n            <ion-col>\n                {{item.amount| currency:\'USD\':true}}\n            </ion-col> \n          </ion-row>\n        </ion-grid>\n    </ion-item>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/church-detail/church-detail.html"*/,
+        selector: 'page-church-detail',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/church-detail/church-detail.html"*/'<!--\n  Generated template for the ChurchDetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color = "primary">\n    <ion-title>{{data.church.name}}</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'goHome(0)\'>\n        <ion-icon name=\'home\'></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card>\n    <ion-item>\n      <ion-avatar item-start>\n        <img src={{data.church.pastorUrl}}>\n      </ion-avatar>\n      <h2 class = "headercenter">{{data.church.name}}</h2>\n      \n      <button ion-button item-right item-top *ngIf = "isFollowing" (click)=\'toggleFollow()\'>\n        <ion-icon name="star"></ion-icon>\n      </button>\n      <button ion-button item-right item-top *ngIf = "!isFollowing" (click)=\'toggleFollow()\'>\n        <ion-icon name="sad"></ion-icon>\n      </button>\n\n    </ion-item>\n    <ion-item>\n      <h2 class = "headercenter">{{data.church.pastor}}</h2>\n      <h2 class = "headercenter">{{data.church.city}}, {{data.church.state}}</h2>\n    </ion-item>\n    <button ion-button block color="secondary" (click)="openModal()">\n        Give\n    </button>\n  </ion-card>\n\n  <ion-card>\n    <ion-item>\n      <ion-title>Your Recent Giving</ion-title>\n        <ion-grid *ngFor="let item of transactions">\n          <ion-row align-items-start>\n            <ion-col>\n                {{item.date| date:\'MM/dd/yyyy\'}} \n            </ion-col>\n            <ion-col>\n                {{item.amount| currency:\'USD\':true}}\n            </ion-col> \n          </ion-row>\n        </ion-grid>\n    </ion-item>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/church-detail/church-detail.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_shared_shared__["a" /* GetChurches */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage_dist_src_storage__["a" /* Storage */], __WEBPACK_IMPORTED_MODULE_2__app_shared_shared__["b" /* GetFavorites */]])
 ], ChurchDetailPage);
 
 //# sourceMappingURL=church-detail.js.map
+
+/***/ }),
+
+/***/ 198:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GiveModalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__ = __webpack_require__(155);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var GiveModalPage = (function () {
+    function GiveModalPage(navCtrl, navParams, viewController, stripe) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewController = viewController;
+        this.stripe = stripe;
+        this.cardinfo = {
+            number: '',
+            expMonth: '',
+            expYear: '',
+            cvc: ''
+        };
+        this.churchGive = navParams.get('obj');
+        console.log('the church data is:', this.churchGive);
+    }
+    GiveModalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GiveModalPage');
+    };
+    GiveModalPage.prototype.cancelModal = function () {
+        this.viewController.dismiss();
+    };
+    GiveModalPage.prototype.giveClose = function () {
+        this.navCtrl.setPages([
+            { page: __WEBPACK_IMPORTED_MODULE_2__pages__["f" /* TabsPage */] }
+        ]);
+    };
+    GiveModalPage.prototype.pay = function () {
+        this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
+        this.stripe.createCardToken(this.cardinfo).then(function (token) {
+            var data = 'stripetoken=' + token + '&amount=50';
+        });
+    };
+    return GiveModalPage;
+}());
+GiveModalPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder=\'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  <button ion-button (click) = "pay()">Pay Now</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */]])
+], GiveModalPage);
+
+//# sourceMappingURL=give-modal.js.map
 
 /***/ }),
 
@@ -299,8 +299,8 @@ AppModule = __decorate([
             //HttpModule,
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
-                    { loadChildren: '../pages/give-modal/give-modal.module#GiveModalPageModule', name: 'GiveModalPage', segment: 'give-modal', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/church-detail/church-detail.module#ChurchDetailPageModule', name: 'ChurchDetailPage', segment: 'church-detail', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/church-detail/church-detail.module#ChurchDetailPageModule', name: 'ChurchDetailPage', segment: 'church-detail', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/give-modal/give-modal.module#GiveModalPageModule', name: 'GiveModalPage', segment: 'give-modal', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -331,89 +331,6 @@ AppModule = __decorate([
 /***/ }),
 
 /***/ 242:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(80);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, navParams, modalController, getFavorites, storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.modalController = modalController;
-        this.getFavorites = getFavorites;
-        this.storage = storage;
-        this.hardcodedChurches = [
-            {
-                church: { id: 1, name: 'CityLight Church', address: '123 Main Avenue', pastor: 'Tim Smith',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV" }
-            },
-            {
-                church: { id: 'apartment', name: 'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV" }
-            }
-        ];
-    }
-    HomePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HomePage');
-    };
-    HomePage.prototype.ionViewWillEnter = function () {
-        console.log('ionViewWillEnter HomePage');
-        this.myChurches = this.getFavorites.getFavoriteChurches();
-        this.favArray = this.getFavorites.getAllFavorites();
-        //var testMyChurches = myChurches[0];
-        console.log('myChurches are:', this.myChurches);
-        console.log('hardcoded churches are:', this.hardcodedChurches);
-    };
-    HomePage.prototype.openModal = function (item) {
-        var myModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__pages__["b" /* GiveModalPage */], { 'obj': item });
-        myModal.present();
-    };
-    HomePage.prototype.unfollowFromHome = function (churchId) {
-        this.getFavorites.unfavoriteChurch(churchId);
-        this.ionViewWillEnter();
-    };
-    HomePage.prototype.areFavorites = function () {
-        if (this.storage.keys) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    return HomePage;
-}());
-HomePage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\'>\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)=\'unfollowFromHome(item.church.id)\'>\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)=\'openModal(item)\'>\n      GiveC\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/home/home.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
-        __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__["b" /* GetFavorites */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
-], HomePage);
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 243:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -489,7 +406,7 @@ GetChurches = __decorate([
 
 /***/ }),
 
-/***/ 244:
+/***/ 243:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -557,6 +474,89 @@ GetFavorites = __decorate([
 
 /***/ }),
 
+/***/ 246:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(80);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HomePage = (function () {
+    function HomePage(navCtrl, navParams, modalController, getFavorites, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalController = modalController;
+        this.getFavorites = getFavorites;
+        this.storage = storage;
+        this.hardcodedChurches = [
+            {
+                church: { id: 1, name: 'CityLight Church', address: '123 Main Avenue', pastor: 'Tim Smith',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV" }
+            },
+            {
+                church: { id: 'apartment', name: 'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV" }
+            }
+        ];
+    }
+    HomePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HomePage');
+    };
+    HomePage.prototype.ionViewWillEnter = function () {
+        console.log('ionViewWillEnter HomePage');
+        this.myChurches = this.getFavorites.getFavoriteChurches();
+        this.favArray = this.getFavorites.getAllFavorites();
+        //var testMyChurches = myChurches[0];
+        console.log('myChurches are:', this.myChurches);
+        console.log('hardcoded churches are:', this.hardcodedChurches);
+    };
+    HomePage.prototype.openModal = function (item) {
+        var myModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__pages__["b" /* GiveModalPage */], { 'obj': item });
+        myModal.present();
+    };
+    HomePage.prototype.unfollowFromHome = function (churchId) {
+        this.getFavorites.unfavoriteChurch(churchId);
+        this.ionViewWillEnter();
+    };
+    HomePage.prototype.areFavorites = function () {
+        if (this.storage.keys) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    return HomePage;
+}());
+HomePage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-home',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\'>\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)=\'unfollowFromHome(item.church.id)\'>\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)=\'openModal(item)\'>\n      GiveC\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__["b" /* GetFavorites */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
+], HomePage);
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
 /***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -613,7 +613,7 @@ var SearchPage = (function () {
 }());
 SearchPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-search',template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/search/search.html"*/'<ion-header>  \n  <ion-navbar color="primary">\n    <ion-title>\n      Find a Church my brotha!\n    </ion-title>\n  </ion-navbar>\n    <ion-searchbar (ionInput)=\'updateChurches($event)\'>\n    </ion-searchbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n            <button ion-item *ngFor="let item of allChurches" (click)=\'goToCD(item)\' >\n                {{item.church.name}}\n            </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/search/search.html"*/
+        selector: 'page-search',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/search/search.html"*/'<ion-header>  \n  <ion-navbar color="primary">\n    <ion-title>\n      Find a Church my brotha!\n    </ion-title>\n  </ion-navbar>\n    <ion-searchbar (ionInput)=\'updateChurches($event)\'>\n    </ion-searchbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n            <button ion-item *ngFor="let item of allChurches" (click)=\'goToCD(item)\' >\n                {{item.church.name}}\n            </button>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/search/search.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_shared_shared__["a" /* GetChurches */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
 ], SearchPage);
@@ -649,7 +649,7 @@ var SettingsPage = (function () {
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Settings\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/settings/settings.html"*/
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Settings\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], SettingsPage);
@@ -692,7 +692,7 @@ __decorate([
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Nav */])
 ], TabsPage.prototype, "nav", void 0);
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/tabs/tabs.html"*/'\n<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabTitle="My Churches" tabIcon="heart-outline"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabTitle="Find a Church" tabIcon="search"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabTitle="Settings" tabIcon="settings"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/tabs/tabs.html"*/'\n<ion-tabs>\n  <ion-tab [root]="tab1Root"  tabTitle="My Churches" tabIcon="heart-outline"></ion-tab>\n  <ion-tab [root]="tab2Root"  tabTitle="Find a Church" tabIcon="search"></ion-tab>\n  <ion-tab [root]="tab3Root"  tabTitle="Settings" tabIcon="settings"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -705,7 +705,7 @@ TabsPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(246);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__home_home__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search__ = __webpack_require__(247);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__search_search__["a"]; });
@@ -713,9 +713,9 @@ TabsPage = __decorate([
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(249);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__ = __webpack_require__(197);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__ = __webpack_require__(198);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__["a"]; });
 
 
@@ -770,7 +770,7 @@ __decorate([
     __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/MartyMoesta/Documents/church-giving-app/src/app/app.html"*/' <ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/MartyMoesta/Documents/church-giving-app/src/app/app.html"*/,
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/app/app.html"*/' <ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/app/app.html"*/,
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__app_shared_shared__["a" /* GetChurches */],
             __WEBPACK_IMPORTED_MODULE_4__app_shared_shared__["b" /* GetFavorites */]
@@ -787,9 +787,9 @@ MyApp = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_churches_service__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_churches_service__ = __webpack_require__(242);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__get_churches_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__ = __webpack_require__(243);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__["a"]; });
 
 
