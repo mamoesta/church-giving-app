@@ -21,6 +21,7 @@
 </ion-content>
 
 <ion-content *ngIf='areFavorites()'>
+  <button ion-button full (click)='showPlatform()'> Where am I? </button>
   <ion-card *ngFor="let item of myChurches">
     <ion-grid>
       <ion-row>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage,NavController, NavParams, ModalController} from 'ionic-angular';
+import { IonicPage,NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
 import { GiveModalPage} from '../pages';
 import {GetFavorites} from '../../app/shared/shared';
 import {Storage} from '@ionic/storage';
@@ -25,7 +25,8 @@ export class HomePage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalController: ModalController, 
-    public getFavorites: GetFavorites, public storage:Storage) {
+    public getFavorites: GetFavorites, public storage:Storage, private alertController: AlertController,
+  private platform: Platform) {
   }
   
 
@@ -61,4 +62,5 @@ export class HomePage {
       return false;
     }
   }
+
 }
