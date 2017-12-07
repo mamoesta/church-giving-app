@@ -9,8 +9,8 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navpParams: NavParams, private platform: Platform,
-  private alertController: AlertController) {
+  constructor(public navCtrl: NavController, public navpParams: NavParams, public platform: Platform,
+  public alertController: AlertController) {
 
   }
 
@@ -18,11 +18,9 @@ export class SettingsPage {
     let text = 'I run on' + this.platform.platforms();
     let alert = this.alertController.create({
       title: 'My Home',
-      subTitle: 'text',
+      subTitle: text,
       buttons: ['Ok']
     });
     alert.present();
   }
-
-
 }

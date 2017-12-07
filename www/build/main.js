@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,7 +13,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 112;
+webpackEmptyAsyncContext.id = 113;
 
 /***/ }),
 
@@ -260,7 +260,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_pages__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_shared__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_stripe__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -412,8 +412,8 @@ GetChurches = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetFavorites; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -483,7 +483,7 @@ GetFavorites = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -547,7 +547,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\'>\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)=\'unfollowFromHome(item.church.id)\'>\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)=\'openModal(item)\'>\n      GiveC\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\'>\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)=\'unfollowFromHome(item.church.id)\'>\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)=\'openModal(item)\'>\n      Give\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
         __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__["b" /* GetFavorites */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
@@ -629,6 +629,8 @@ SearchPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__ = __webpack_require__(64);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -640,20 +642,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var SettingsPage = (function () {
-    function SettingsPage(navCtrl, navpParams) {
+    function SettingsPage(navCtrl, navpParams, platform, alertController) {
         this.navCtrl = navCtrl;
         this.navpParams = navpParams;
+        this.platform = platform;
+        this.alertController = alertController;
     }
+    SettingsPage.prototype.showPlatform = function () {
+        var text = 'I run on' + this.platform.platforms();
+        var alert = this.alertController.create({
+            title: 'My Home',
+            subTitle: text,
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
     return SettingsPage;
 }());
 SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Settings\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Settings\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n    <ion-item \n      (click)=\'showPlatform()\'> Where am I? \n    </ion-item> \n  </ion-list>\n   \n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__["a" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__["a" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]) === "function" && _d || Object])
 ], SettingsPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=settings.js.map
 
 /***/ }),
