@@ -25,8 +25,7 @@ export class HomePage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalController: ModalController, 
-    public getFavorites: GetFavorites, public storage:Storage, private alertController: AlertController,
-  private platform: Platform) {
+    public getFavorites: GetFavorites, public storage:Storage) {
   }
   
 
@@ -61,15 +60,6 @@ export class HomePage {
     }else{
       return false;
     }
-  }
-  showPlatform(){
-    let text = 'I run on' + this.platform.platforms();
-    let alert = this.alertController.create({
-      title: 'My Home',
-      subTitle: 'text',
-      buttons: ['Ok']
-    });
-    alert.present();
   }
 
 }
