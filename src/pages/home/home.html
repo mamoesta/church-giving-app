@@ -21,7 +21,6 @@
 </ion-content>
 
 <ion-content *ngIf='areFavorites()'>
-  <button ion-button full (click)='showPlatform()'> Where am I? </button>
   <ion-card *ngFor="let item of myChurches">
     <ion-grid>
       <ion-row>
@@ -31,6 +30,7 @@
           <button ion-button (click)='unfollowFromHome(item.church.id)'>
             Unfollow
           </button>
+          <button ion-button full (click)='showPlatform()'> Where am I? </button>
         </ion-col>
       </ion-row>
     </ion-grid>

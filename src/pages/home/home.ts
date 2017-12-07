@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage,NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
+import { IonicPage,NavController, NavParams, ModalController, AlertController, Platform} from 'ionic-angular';
 import { GiveModalPage} from '../pages';
 import {GetFavorites} from '../../app/shared/shared';
 import {Storage} from '@ionic/storage';
@@ -61,6 +61,15 @@ export class HomePage {
     }else{
       return false;
     }
+  }
+  showPlatform(){
+    let text = 'I run on' + this.platform.platforms();
+    let alert = this.alertController.create({
+      title: 'My Home',
+      subTitle: 'text',
+      buttons: ['Ok']
+    });
+    alert.present();
   }
 
 }
