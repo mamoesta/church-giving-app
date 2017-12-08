@@ -22,7 +22,7 @@ var cors = require('cors');
 var router = express.Router();
 
 app.use(morgan('dev'));  
-app.use(bodyParser.urlencoded({'extended':'false'}));                                                
+app.use(bodyParser.urlencoded({'extended':'true'}));                                                
 app.use(cors());
 
 router.post('/processpay', function (request, response){
@@ -50,8 +50,9 @@ app.use(function(req, res, next) {
   });
 app.use(express.static('www'));
 //app.use(router);
-app.listen(3333, function(){
-    console.log('sever started');
+app.set('port', process.env.PORT || 5000)
+app.listen(app.get('port'), function(){
+    console.log('sever started listening on port' + app.get('port'));
 });
 
 /*
