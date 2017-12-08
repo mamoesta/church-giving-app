@@ -22,11 +22,11 @@ webpackEmptyAsyncContext.id = 113;
 
 var map = {
 	"../pages/church-detail/church-detail.module": [
-		279,
+		280,
 		1
 	],
 	"../pages/give-modal/give-modal.module": [
-		280,
+		279,
 		0
 	]
 };
@@ -50,12 +50,90 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GiveModalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(157);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var GiveModalPage = (function () {
+    function GiveModalPage(navCtrl, navParams, viewController, stripe, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewController = viewController;
+        this.stripe = stripe;
+        this.http = http;
+        this.cardinfo = {
+            number: '',
+            expMonth: '',
+            expYear: '',
+            cvc: ''
+        };
+        this.churchGive = navParams.get('obj');
+        console.log('the church data is:', this.churchGive);
+    }
+    GiveModalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GiveModalPage');
+    };
+    GiveModalPage.prototype.cancelModal = function () {
+        this.viewController.dismiss();
+    };
+    GiveModalPage.prototype.giveClose = function () {
+        this.navCtrl.setPages([
+            { page: __WEBPACK_IMPORTED_MODULE_2__pages__["f" /* TabsPage */] }
+        ]);
+    };
+    GiveModalPage.prototype.pay = function () {
+        var _this = this;
+        this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
+        this.stripe.createCardToken(this.cardinfo).then(function (token) {
+            var data = 'stripetoken=' + token + '&amount=50';
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+            headers.append('Content-type', 'application/x-www-form-urlencoded');
+            _this.http.post('http://localhost:5000/processpay', data, { headers: headers }).subscribe(function (res) {
+                if (res.json().success)
+                    alert('transaction successfull!!');
+            });
+        });
+    };
+    return GiveModalPage;
+}());
+GiveModalPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder=\'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  <button ion-button (click) = "pay()">Pay whenver you click</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+], GiveModalPage);
+
+//# sourceMappingURL=give-modal.js.map
+
+/***/ }),
+
+/***/ 199:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChurchDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_shared_shared__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage_dist_src_storage__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -166,84 +244,6 @@ ChurchDetailPage = __decorate([
 
 /***/ }),
 
-/***/ 199:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GiveModalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(157);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var GiveModalPage = (function () {
-    function GiveModalPage(navCtrl, navParams, viewController, stripe, http) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewController = viewController;
-        this.stripe = stripe;
-        this.http = http;
-        this.cardinfo = {
-            number: '',
-            expMonth: '',
-            expYear: '',
-            cvc: ''
-        };
-        this.churchGive = navParams.get('obj');
-        console.log('the church data is:', this.churchGive);
-    }
-    GiveModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad GiveModalPage');
-    };
-    GiveModalPage.prototype.cancelModal = function () {
-        this.viewController.dismiss();
-    };
-    GiveModalPage.prototype.giveClose = function () {
-        this.navCtrl.setPages([
-            { page: __WEBPACK_IMPORTED_MODULE_2__pages__["f" /* TabsPage */] }
-        ]);
-    };
-    GiveModalPage.prototype.pay = function () {
-        var _this = this;
-        this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
-        this.stripe.createCardToken(this.cardinfo).then(function (token) {
-            var data = 'stripetoken=' + token + '&amount=50';
-            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
-            headers.append('Content-type', 'application/x-www-form-urlencoded');
-            _this.http.post('http://localhost:3333/processpay', data, { headers: headers }).subscribe(function (res) {
-                if (res.json().success)
-                    alert('transaction successfull!!');
-            });
-        });
-    };
-    return GiveModalPage;
-}());
-GiveModalPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder=\'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  <button ion-button (click) = "pay()">Pay Now</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
-], GiveModalPage);
-
-//# sourceMappingURL=give-modal.js.map
-
-/***/ }),
-
 /***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -312,8 +312,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
-                    { loadChildren: '../pages/church-detail/church-detail.module#ChurchDetailPageModule', name: 'ChurchDetailPage', segment: 'church-detail', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/give-modal/give-modal.module#GiveModalPageModule', name: 'GiveModalPage', segment: 'give-modal', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/give-modal/give-modal.module#GiveModalPageModule', name: 'GiveModalPage', segment: 'give-modal', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/church-detail/church-detail.module#ChurchDetailPageModule', name: 'ChurchDetailPage', segment: 'church-detail', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -344,150 +344,6 @@ AppModule = __decorate([
 /***/ }),
 
 /***/ 243:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetChurches; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GetChurches = (function () {
-    function GetChurches() {
-    }
-    GetChurches.prototype.initializeChurches = function () {
-        this.allChurches = [
-            {
-                church: { id: 1, name: 'CityLight Church', address: '123 Main Avenue', pastor: 'Tim Smith', city: 'Philadelphia', state: 'PA',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
-            },
-            {
-                church: { id: 2, name: 'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'New Haven', state: 'CT',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
-            },
-            {
-                church: { id: 3, name: 'Rock Church', address: '123 Smith Avenue', pastor: 'Tim Smith', city: 'Richmond', state: 'VA',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
-            },
-            {
-                church: { id: 4, name: 'Epic Church On the Lake', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'Nashville', state: 'TN',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
-            },
-            {
-                church: { id: 5, name: 'Grace Episcopal Church', address: '123 Main Avenue', pastor: 'Tim Smith', city: 'Little Rock', state: 'AK',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
-            },
-            {
-                church: { id: 6, name: 'Church of the Cross', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'Detroit', state: 'MI',
-                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
-            }
-        ];
-        return this.allChurches;
-    };
-    GetChurches.prototype.initializeTransactions = function () {
-        this.allTransactions = [
-            { churchId: 1, tId: 1, date: "2012-04-23T18:25:43.511Z", amount: 25.13, userId: 1, paymentTypeId: 1, cause: "" },
-            { churchId: 2, tId: 2, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 2, paymentTypeId: 2, cause: "General Donations" },
-            { churchId: 3, tId: 3, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 7, paymentTypeId: 2, cause: "Mission Trip" },
-            { churchId: 4, tId: 4, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 4, paymentTypeId: 2, cause: "Other" },
-            { churchId: 2, tId: 5, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 5, paymentTypeId: 2, cause: "" },
-            { churchId: 2, tId: 6, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 6, paymentTypeId: 2, cause: "General Donations" },
-            { churchId: 2, tId: 7, date: "2014-11-18T18:25:43.511Z", amount: 4.30, userId: 7, paymentTypeId: 2, cause: "Random Act of Kindess" },
-            { churchId: 2, tId: 8, date: "2014-11-25T18:25:43.511Z", amount: 55.15, userId: 7, paymentTypeId: 2, cause: "Thing" },
-            { churchId: 2, tId: 9, date: "2014-12-02T18:25:43.511Z", amount: 120.45, userId: 7, paymentTypeId: 2, cause: "This is a great app" },
-            { churchId: 2, tId: 10, date: "2014-12-09T18:25:43.511Z", amount: 1000.00, userId: 7, paymentTypeId: 2, cause: "I'm Rich" }
-        ];
-        return this.allTransactions;
-    };
-    return GetChurches;
-}());
-GetChurches = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
-], GetChurches);
-
-//# sourceMappingURL=get-churches.service.js.map
-
-/***/ }),
-
-/***/ 244:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetFavorites; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__ = __webpack_require__(82);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var GetFavorites = (function () {
-    function GetFavorites(storage, events) {
-        this.storage = storage;
-        this.events = events;
-    }
-    GetFavorites.prototype.getAllFavorites = function () {
-        console.log('getAllFavorites method called');
-        var favorites = [];
-        this.storage.forEach(function (value, key, index) {
-            favorites.push(key);
-        });
-        //console.log('the keys in storage are:',favorites);
-        return favorites;
-    };
-    GetFavorites.prototype.isFavorite = function (churchId) {
-        return this.storage.get(churchId.toString());
-    };
-    GetFavorites.prototype.getFavoriteChurches = function () {
-        var favChurches = [];
-        console.log('getFavoriteChurches method called');
-        this.storage.forEach(function (value, key, index) {
-            favChurches.push(value);
-        });
-        console.log('The data for the favorite churches are:', favChurches);
-        return favChurches;
-    };
-    GetFavorites.prototype.favoriteChurch = function (church) {
-        var item = { church: church };
-        this.storage.set(church.id, item);
-        this.events.publish('favorites:changed');
-    };
-    GetFavorites.prototype.unfavoriteChurch = function (churchId) {
-        this.storage.remove(churchId);
-        this.events.publish('favorites:changed');
-    };
-    GetFavorites.prototype.placeholderMethod = function () {
-    };
-    return GetFavorites;
-}());
-GetFavorites = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__["a" /* Events */]])
-], GetFavorites);
-
-//# sourceMappingURL=get-favorites.service.js.map
-
-/***/ }),
-
-/***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -567,6 +423,150 @@ HomePage = __decorate([
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 244:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetChurches; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GetChurches = (function () {
+    function GetChurches() {
+    }
+    GetChurches.prototype.initializeChurches = function () {
+        this.allChurches = [
+            {
+                church: { id: 1, name: 'CityLight Church', address: '123 Main Avenue', pastor: 'Tim Smith', city: 'Philadelphia', state: 'PA',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
+            },
+            {
+                church: { id: 2, name: 'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'New Haven', state: 'CT',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
+            },
+            {
+                church: { id: 3, name: 'Rock Church', address: '123 Smith Avenue', pastor: 'Tim Smith', city: 'Richmond', state: 'VA',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
+            },
+            {
+                church: { id: 4, name: 'Epic Church On the Lake', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'Nashville', state: 'TN',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
+            },
+            {
+                church: { id: 5, name: 'Grace Episcopal Church', address: '123 Main Avenue', pastor: 'Tim Smith', city: 'Little Rock', state: 'AK',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
+            },
+            {
+                church: { id: 6, name: 'Church of the Cross', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'Detroit', state: 'MI',
+                    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
+                    pastorUrl: "https://upload.wikimedia.org/wikipedia/en/d/d8/Michael_J._Fox_as_Marty_McFly_in_Back_to_the_Future%2C_1985.jpg" }
+            }
+        ];
+        return this.allChurches;
+    };
+    GetChurches.prototype.initializeTransactions = function () {
+        this.allTransactions = [
+            { churchId: 1, tId: 1, date: "2012-04-23T18:25:43.511Z", amount: 25.13, userId: 1, paymentTypeId: 1, cause: "" },
+            { churchId: 2, tId: 2, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 2, paymentTypeId: 2, cause: "General Donations" },
+            { churchId: 3, tId: 3, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 7, paymentTypeId: 2, cause: "Mission Trip" },
+            { churchId: 4, tId: 4, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 4, paymentTypeId: 2, cause: "Other" },
+            { churchId: 2, tId: 5, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 5, paymentTypeId: 2, cause: "" },
+            { churchId: 2, tId: 6, date: "2014-11-11T18:25:43.511Z", amount: 100, userId: 6, paymentTypeId: 2, cause: "General Donations" },
+            { churchId: 2, tId: 7, date: "2014-11-18T18:25:43.511Z", amount: 4.30, userId: 7, paymentTypeId: 2, cause: "Random Act of Kindess" },
+            { churchId: 2, tId: 8, date: "2014-11-25T18:25:43.511Z", amount: 55.15, userId: 7, paymentTypeId: 2, cause: "Thing" },
+            { churchId: 2, tId: 9, date: "2014-12-02T18:25:43.511Z", amount: 120.45, userId: 7, paymentTypeId: 2, cause: "This is a great app" },
+            { churchId: 2, tId: 10, date: "2014-12-09T18:25:43.511Z", amount: 1000.00, userId: 7, paymentTypeId: 2, cause: "I'm Rich" }
+        ];
+        return this.allTransactions;
+    };
+    return GetChurches;
+}());
+GetChurches = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+], GetChurches);
+
+//# sourceMappingURL=get-churches.service.js.map
+
+/***/ }),
+
+/***/ 245:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetFavorites; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__ = __webpack_require__(82);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GetFavorites = (function () {
+    function GetFavorites(storage, events) {
+        this.storage = storage;
+        this.events = events;
+    }
+    GetFavorites.prototype.getAllFavorites = function () {
+        console.log('getAllFavorites method called');
+        var favorites = [];
+        this.storage.forEach(function (value, key, index) {
+            favorites.push(key);
+        });
+        //console.log('the keys in storage are:',favorites);
+        return favorites;
+    };
+    GetFavorites.prototype.isFavorite = function (churchId) {
+        return this.storage.get(churchId.toString());
+    };
+    GetFavorites.prototype.getFavoriteChurches = function () {
+        var favChurches = [];
+        console.log('getFavoriteChurches method called');
+        this.storage.forEach(function (value, key, index) {
+            favChurches.push(value);
+        });
+        console.log('The data for the favorite churches are:', favChurches);
+        return favChurches;
+    };
+    GetFavorites.prototype.favoriteChurch = function (church) {
+        var item = { church: church };
+        this.storage.set(church.id, item);
+        this.events.publish('favorites:changed');
+    };
+    GetFavorites.prototype.unfavoriteChurch = function (churchId) {
+        this.storage.remove(churchId);
+        this.events.publish('favorites:changed');
+    };
+    GetFavorites.prototype.placeholderMethod = function () {
+    };
+    return GetFavorites;
+}());
+GetFavorites = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_util_events__["a" /* Events */]])
+], GetFavorites);
+
+//# sourceMappingURL=get-favorites.service.js.map
 
 /***/ }),
 
@@ -790,7 +790,7 @@ MyApp = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(243);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__home_home__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_search__ = __webpack_require__(248);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__search_search__["a"]; });
@@ -798,9 +798,9 @@ MyApp = __decorate([
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(250);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__ = __webpack_require__(199);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__church_detail_church_detail__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__ = __webpack_require__(198);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_5__give_modal_give_modal__["a"]; });
 
 
@@ -816,9 +816,9 @@ MyApp = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_churches_service__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_churches_service__ = __webpack_require__(244);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__get_churches_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__ = __webpack_require__(245);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__get_favorites_service__["a"]; });
 
 
