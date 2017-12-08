@@ -9,6 +9,7 @@ import { SettingsPage,HomePage,TabsPage,SearchPage, ChurchDetailPage, GiveModalP
 import { GetChurches, GetFavorites } from './shared/shared';
 import {IonicStorageModule} from '@ionic/storage';
 import {Stripe} from '@ionic-native/stripe';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {Stripe} from '@ionic-native/stripe';
   ],
   imports: [
     BrowserModule,
-    //HttpModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

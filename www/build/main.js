@@ -175,6 +175,7 @@ ChurchDetailPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(280);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -188,12 +189,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var GiveModalPage = (function () {
-    function GiveModalPage(navCtrl, navParams, viewController, stripe) {
+    function GiveModalPage(navCtrl, navParams, viewController, stripe, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.viewController = viewController;
         this.stripe = stripe;
+        this.http = http;
         this.cardinfo = {
             number: '',
             expMonth: '',
@@ -215,9 +218,15 @@ var GiveModalPage = (function () {
         ]);
     };
     GiveModalPage.prototype.pay = function () {
+        var _this = this;
         this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
         this.stripe.createCardToken(this.cardinfo).then(function (token) {
             var data = 'stripetoken=' + token + '&amount=50';
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+            _this.http.post('http://localhost:5000/processpay', data, { headers: headers }).subscribe(function (res) {
+                if (res.json().success)
+                    alert('transaction successfull!!');
+            });
         });
     };
     return GiveModalPage;
@@ -226,9 +235,10 @@ GiveModalPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder=\'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  <button ion-button (click) = "pay()">Pay Now</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _e || Object])
 ], GiveModalPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=give-modal.js.map
 
 /***/ }),
@@ -262,12 +272,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_shared__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_stripe__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_http__ = __webpack_require__(280);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -296,7 +308,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            //HttpModule,
+            __WEBPACK_IMPORTED_MODULE_10__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/church-detail/church-detail.module#ChurchDetailPageModule', name: 'ChurchDetailPage', segment: 'church-detail', priority: 'low', defaultHistory: [] },
@@ -666,10 +678,10 @@ SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-settings',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Settings\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n    <ion-item \n      (click)=\'showPlatform()\'> Where am I? \n    </ion-item> \n  </ion-list>\n   \n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/settings/settings.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__["a" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__["a" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_platform_platform__["a" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_3_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]])
 ], SettingsPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=settings.js.map
 
 /***/ }),

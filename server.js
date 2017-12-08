@@ -1,13 +1,27 @@
 /*
-var stripe = require('stripe')('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var app = express();
-var router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(cors());
+
+app.use(router);
+app.listen(3333, function (){
+    console.log('Server started');
+})
+*/
+var stripe = require('stripe')('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
+var express  = require('express');
+var app      = express();                               
+var morgan = require('morgan');            
+var bodyParser = require('body-parser');    
+var cors = require('cors');
+var router = express.Router();
+
+app.use(bodyParser.urlencoded({'extended':'false'}));                                                
 app.use(cors());
 
 router.post('/processpay', function (request, response){
@@ -26,23 +40,14 @@ router.post('/processpay', function (request, response){
     
     })
 })
-
+ 
+//app.use(morgan('dev'));                                        
 app.use(router);
-app.listen(3333, function (){
-    console.log('Server started');
-})
-*/
-var express  = require('express');
-var app      = express();                               
-var morgan = require('morgan');            
-var bodyParser = require('body-parser');    
-var cors = require('cors');
- 
-app.use(morgan('dev'));                                        
-app.use(bodyParser.urlencoded({'extended':'true'}));            
-app.use(bodyParser.json());                                     
-app.use(cors());
- 
+app.listen(3333, function(){
+    console.log('sever started');
+});
+
+/*
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
@@ -55,3 +60,4 @@ app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port yo mamma shut it boiiiii ' + app.get('port'));
 });
+*/
