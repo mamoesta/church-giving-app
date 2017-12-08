@@ -48,7 +48,7 @@ export class GiveModalPage {
       headers.append('Content-type' , 'application/x-www-form-urlencoded');
       this.http.post('http://localhost:5000/processpay', data, {headers: headers}).subscribe((res)=>{
         if(res.json().success)
-        alert('transaction successfull!!')
+        alert('transaction successfull!!');
       });
     });
   }
