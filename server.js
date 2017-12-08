@@ -21,6 +21,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var router = express.Router();
 
+app.use(morgan('dev'));  
 app.use(bodyParser.urlencoded({'extended':'false'}));                                                
 app.use(cors());
 
@@ -40,8 +41,14 @@ router.post('/processpay', function (request, response){
     
     })
 })
- 
-//app.use(morgan('dev'));                                        
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+app.use(express.static('www'));
 app.use(router);
 app.listen(3333, function(){
     console.log('sever started');
