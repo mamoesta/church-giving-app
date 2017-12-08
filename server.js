@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
     next();
   });
 app.use(express.static('www'));
-app.use(router);
+//app.use(router);
 app.listen(3333, function(){
     console.log('sever started');
 });
