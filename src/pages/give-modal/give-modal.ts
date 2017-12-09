@@ -15,10 +15,10 @@ import {Http, Headers} from '@angular/http';
 export class GiveModalPage {
   churchGive;
   cardinfo: any = {
-    number: '',
-    expMonth: '',
-    expYear: '',
-    cvc:''
+    number: '4242424242424242',
+    expMonth: '05',
+    expYear: '2020',
+    cvc:'844'
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController, 
@@ -48,7 +48,7 @@ export class GiveModalPage {
       headers.append('Content-type' , 'application/x-www-form-urlencoded');
       this.http.post('http://localhost:5000/processpay', data, {headers: headers}).subscribe((res)=>{
         if(res.json().success)
-        alert('transaction successfull!!');
+        alert('transaction successful!!');
       });
     });
   }
