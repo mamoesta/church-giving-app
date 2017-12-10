@@ -104,9 +104,13 @@ var GiveModalPage = (function () {
             var data = 'stripetoken=' + token + '&amount=50';
             var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
             headers.append('Content-type', 'application/x-www-form-urlencoded');
-            _this.http.post('stark-ravine-41679.herokuapp.com/processpay', data, { headers: headers }).subscribe(function (res) {
-                if (res.json().success)
+            _this.http.post('http://localhost:5000', data, { headers: headers }).subscribe(function (res) {
+                if (res.json().success) {
                     alert('transaction successful!!');
+                }
+                else {
+                    alert('your transaction failed!');
+                }
             });
         });
     };
@@ -114,7 +118,7 @@ var GiveModalPage = (function () {
 }());
 GiveModalPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <!---\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder = \'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  -->\n  <button ion-button (click) = "pay()">Pay whenver you click you fool</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
+        selector: 'page-give-modal',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/'<!--\n  Generated template for the GiveModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Give</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{churchGive.church.name}}\n  <button ion-button (click)=\'cancelModal()\'>\n    Cancel\n  </button>\n  <button ion-button (click)=\'giveClose()\'>\n    Give\n  </button>\n  <!---\n  <ion-input [(ngModel)] = \'cardinfo.number\' placeholder = \'card number\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expMonth\' placeholder=\'expiry month\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.expYear\' placeholder=\'expiry year\'></ion-input>\n  <ion-input [(ngModel)] = \'cardinfo.cvc\' placeholder=\'cvc\'></ion-input>\n  -->\n  <button ion-button (click) = "pay()">Pay whenever you click am changing the info</button>\n</ion-content>\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/give-modal/give-modal.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
         __WEBPACK_IMPORTED_MODULE_3__ionic_native_stripe__["a" /* Stripe */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
