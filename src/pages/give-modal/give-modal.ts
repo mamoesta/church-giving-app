@@ -29,7 +29,7 @@ export class GiveModalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GoveModalPage');
+    console.log('ionViewDidLoad GiveModalPage');
   }
 
   cancelModal(){
