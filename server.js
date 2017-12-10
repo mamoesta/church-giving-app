@@ -13,7 +13,7 @@ app.listen(3333, function (){
     console.log('Server started');
 })
 */
-var stripe = require('stripe')('pk_test_VCjpSYZvlpb4hCGjLJWERGgH');
+var stripe = require('stripe')('sk_test_0uDil0LNazbMsg8KeZjElt4U');
 var express  = require('express');
 var app      = express();                               
 var morgan = require('morgan');            
