@@ -51,11 +51,10 @@ app.use(function(req, res, next) {
 app.use(express.static('www'));
 app.use(router);
 app.set('port', process.env.PORT || 5000)
-/*
 app.listen(app.get('port'), function(){
     console.log('sever started listening on port' + app.get('port'));
 });
-*/
+
 
 /*
 app.use(function(req, res, next) {
