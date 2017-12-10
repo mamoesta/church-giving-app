@@ -47,8 +47,12 @@ export class GiveModalPage {
       var headers = new Headers();
       headers.append('Content-type' , 'application/x-www-form-urlencoded');
       this.http.post('http://localhost:5000', data, {headers: headers}).subscribe((res)=>{
-        if(res.json().success)
-        alert('transaction successful!!');
+        if(res.json().success){
+          alert('transaction successful!!');
+        }
+        else{
+          alert('your transaction failed!');
+        }
       });
     });
   }
