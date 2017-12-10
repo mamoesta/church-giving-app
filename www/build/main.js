@@ -207,7 +207,7 @@ var GiveModalPage = (function () {
         console.log('the church data is:', this.churchGive);
     }
     GiveModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad GiveModalPage');
+        console.log('ionViewDidLoad GoveModalPage');
     };
     GiveModalPage.prototype.cancelModal = function () {
         this.viewController.dismiss();
