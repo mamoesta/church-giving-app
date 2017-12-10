@@ -22,7 +22,7 @@ var cors = require('cors');
 var router = express.Router();
 
 app.use(morgan('dev'));  
-app.use(bodyParser.urlencoded({'extended':'true'}));                                                
+app.use(bodyParser.urlencoded({'extended':'false'}));                                                
 app.use(cors());
 
 router.post('/processpay', function (request, response){
@@ -34,12 +34,13 @@ router.post('/processpay', function (request, response){
         description: 'Sample transaction',
         source: stripetoken
     }, function (err, charge) {
-        if(err)
-            console.log(err);
-        else
+        if(err){
+            console.log(err + 'What is going on?!?!?!');
+        }
+        else{
             response.send({success: true});
             console.log(charge);
-    
+        }
     })
 })
 
