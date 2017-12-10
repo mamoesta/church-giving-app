@@ -224,7 +224,7 @@ var GiveModalPage = (function () {
             var data = 'stripetoken=' + token + '&amount=50';
             var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
             headers.append('Content-type', 'application/x-www-form-urlencoded');
-            _this.http.post('http://localhost:5000/processpay', data, { headers: headers }).subscribe(function (res) {
+            _this.http.post('https://stark-ravine-41679.herokuapp.com/processpay', data, { headers: headers }).subscribe(function (res) {
                 if (res.json().success) {
                     alert('transaction successful!!');
                 }
