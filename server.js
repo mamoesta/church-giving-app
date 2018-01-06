@@ -1,18 +1,8 @@
 /*
-var express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
-
-var app = express();
-
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(cors());
-
-app.use(router);
-app.listen(3333, function (){
-    console.log('Server started');
-})
+MOVE THIS SHIZZ TO AWS AND MAKE IT SERVERLESS - SCREW HEROKU THEIR SETUP IS TOO HARD
+ALSO USE POSTMAN YOU IDIOT
 */
+
 var stripe = require('stripe')('sk_test_0uDil0LNazbMsg8KeZjElt4U');
 var express  = require('express');
 var app      = express();                               
@@ -71,4 +61,20 @@ app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port yo mamma shut it boiiiii ' + app.get('port'));
 });
+*/
+
+/*
+var express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
+
+var app = express();
+
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(cors());
+
+app.use(router);
+app.listen(3333, function (){
+    console.log('Server started');
+})
 */
