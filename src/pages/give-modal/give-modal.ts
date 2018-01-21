@@ -25,7 +25,7 @@ export class GiveModalPage {
     public stripe: Stripe, public http: Http) {
     
     this.churchGive = navParams.get('obj');
-    console.log('the church data is:', this.churchGive);
+    console.log('the church data is: ', this.churchGive);
   }
 
   ionViewDidLoad() {
