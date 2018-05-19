@@ -204,7 +204,7 @@ var GiveModalPage = (function () {
             cvc: '844'
         };
         this.churchGive = navParams.get('obj');
-        console.log('the church data is:', this.churchGive);
+        console.log('the church data is: ', this.churchGive);
     }
     GiveModalPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad GiveModalPage');
@@ -368,7 +368,7 @@ var GetChurches = (function () {
             {
                 church: { id: 1, name: 'CityLight Church', address: '123 Main Avenue', pastor: 'Tim Smith', city: 'Philadelphia', state: 'PA',
                     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-                    pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w" }
+                    pastorUrl: "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/webdr02/2013/6/24/13/enhanced-buzz-orig-27318-1372096625-31.jpg?downsize=715:*&output-format=auto&output-quality=auto" }
             },
             {
                 church: { id: 2, name: 'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city: 'New Haven', state: 'CT',
@@ -564,7 +564,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\'>\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)=\'unfollowFromHome(item.church.id)\'>\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)=\'openModal(item)\'>\n      Give\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color = \'primary\'>\n      <ion-title>Church Giving</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-list>\n    <ion-list-header>\n      Churches Nearby\n    </ion-list-header>\n    <ion-card *ngFor = \'let item of nearbyChurches\' >\n      <ion-card-title>\n        {{item.church.name}}\n      </ion-card-title>\n      <p>\n        Pastor: {{item.church.pastor}}\n      </p>\n    </ion-card>\n  </ion-list>\n</ion-content>\n\n<ion-content *ngIf=\'areFavorites()\'>\n  <ion-card *ngFor="let item of myChurches">\n    <ion-grid>\n      <ion-row>\n        <ion-col></ion-col>\n        <ion-col><img src={{item.church.imageUrl}}></ion-col>\n        <ion-col>\n          <button ion-button (click)="unfollowFromHome(item.church.id)">\n            Unfollow\n          </button>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n    <ion-card-title>\n      {{item.church.name}}\n    </ion-card-title>\n    <p>\n      {{item.church.pastor}}\n    </p>\n    <button ion-button block color="secondary" (click)="openModal(item)">\n      Give\n    </button>\n  </ion-card>\n</ion-content>\n\n'/*ion-inline-end:"/Users/mmoesta/Documents/Ionic/church-giving-app/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
         __WEBPACK_IMPORTED_MODULE_3__app_shared_shared__["b" /* GetFavorites */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
