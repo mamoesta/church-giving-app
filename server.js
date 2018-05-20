@@ -9,14 +9,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/posts', function(req, res) {
- 
-    console.log("posts!");
-    res.json({"success": true});
- 
+app.use(function(req,res,next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
-var port = 8080;
-app.listen(process.env.PORT || port);
-
-console.log("Listening on port:", port)
+app.use(express.static('www'));
+app.set('port', process.env.PORT || 5000);
+app.listen(app.get('port'), function () {
+  console.log('Express server listening on port ' + app.get('port'));
+});

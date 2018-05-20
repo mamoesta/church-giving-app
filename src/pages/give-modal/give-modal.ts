@@ -26,6 +26,7 @@ export class GiveModalPage {
     
     this.churchGive = navParams.get('obj');
     console.log('the church data is: ', this.churchGive);
+
   }
 
   ionViewDidLoad() {
@@ -41,7 +42,7 @@ export class GiveModalPage {
     ]);
   }
   pay(){
-    this.stripe.setPublishableKey('pk_test_VCjpSYZvlpb4hCGjLJWERGgH')
+    
     this.stripe.createCardToken(this.cardinfo).then((token) => {
       var data  = 'stripetoken=' + token + '&amount=50';
       var headers = new Headers();

@@ -30,8 +30,10 @@
     "@ionic/storage": "2.1.1",
     "aws-amplify": "^0.4.1",
     "aws-amplify-angular": "^0.1.1",
+    "aws-sdk": "^2.243.1",
     "body-parser": "^1.18.2",
     "cordova-android": "6.3.0",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-splashscreen": "^4.0.3",
@@ -69,7 +71,8 @@
       "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "main": "server.js",
