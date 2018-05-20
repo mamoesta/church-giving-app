@@ -16,12 +16,12 @@ export class GetChurches {
          {
           church: {id:2,name:'Christ Presbyterian Church', address: '161 Leverington Avenue', pastor: 'Craig Luekens', city:'New Haven', state:'CT',
           imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-          pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w"}
+          pastorUrl: "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/webdr02/2013/6/24/13/enhanced-buzz-orig-27318-1372096625-31.jpg?downsize=715:*&output-format=auto&output-quality=auto"}
          },
          {
            church: {id:3, name: 'Rock Church', address: '123 Smith Avenue', pastor: 'Tim Smith', city: 'Richmond', state: 'VA',
            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm1gNfspDXYDGM3lXiCQAVRlS3iBt2nuecJYALVgBiYQzZ_HV",
-           pastorUrl: "https://static1.squarespace.com/static/53959f2ce4b0d0ce55449ea5/55e47a42e4b04628c9f642e0/560015e7e4b0d0893715381d/1490702123519/OWEN+WILSON.jpg?format=300w"}
+           pastorUrl: "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/webdr02/2013/6/24/13/enhanced-buzz-orig-27318-1372096625-31.jpg?downsize=715:*&output-format=auto&output-quality=auto"}
           },
          {
            church: {id:4,name:'Epic Church On the Lake', address: '161 Leverington Avenue', pastor: 'Craig Luekens',city: 'Nashville', state:'TN',
